@@ -17,15 +17,11 @@ ws['A2'] = datetime.datetime.now()
 # Save the file
 wb.save("sample.xlsx")
 
-# シートを追加
-ws2 = wb.create_sheet()
-
-for i in range(1, 11):
-    if i == 1:
-        for j in range(1, 11):
-            ws2.cell(row=i, column=j).value = j
-    else:
-        for j in range(1, 11):
-            ws2.cell(row=i, column=j).value = i + j * 10
-
+ws_new = wb.create_sheet("追加シート")
+value_data = 0
+for x in range(1, 11):
+    for y in range(1, 11):
+        value_data = 10 * (x - 1) + y
+        ws_new.cell(row=x, column=y).value = value_data
+# Save the file
 wb.save("sample.xlsx")
